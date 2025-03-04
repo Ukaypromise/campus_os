@@ -1,0 +1,20 @@
+<!--Pagination-->
+<% if collection.total_pages > 1 %>
+<div class="bg-white px-4 py-3 flex items-center justify-center sm:px-6 mt-5">
+  <div class="sm:flex sm:items-center">
+    <nav class="relative z-0 inline-flex -space-x-px" aria-label="Pagination">
+      <%= link_to_previous_page collection, 'Previous', class: 'relative inline-flex items-center px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-l-md' %>
+      <% (1..(collection.total_pages == 0 ? 1 : collection.total_pages)).each do |page| %>
+        <% if page == collection.current_page %>
+          <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium bg-white border border-slate-100 text-slate-600 rounded-md">
+            <%= page %>
+          </span>
+        <% else %>
+          <%= link_to page, url_for(page: page), class: 'relative inline-flex items-center px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 border border-slate-100 rounded-md' %>
+        <% end %>
+      <% end %>
+      <%= link_to_next_page collection, 'Next', class: 'relative inline-flex items-center px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 rounded-r-md' %>
+    </nav>
+  </div>
+</div>
+<% end %>

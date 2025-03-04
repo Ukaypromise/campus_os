@@ -14,14 +14,33 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
     <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": Rails.env.production? ? "reload" : "" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <%= yield %>
-    </main>
+  <body class="h-full">
+    <div class="min-h-screen">
+      <%= render "shared/header" %>
+
+      <div class="fixed z-50 space-y-1 top-10 right-20">
+        <div id="notification-tray">
+          <%= render_flash_notifications %>
+        </div>
+      </div>
+
+      <%# Sidebar and Main Content %>
+      <div class="flex">
+        <%= render "shared/sidebar" %>
+
+        <%# Main Content %>
+        <main class="lg:pl-72 w-full">
+          <%= yield %>
+        </main>
+      </div>
+      <%# Footer navbar %>
+      <%= render "shared/footer_nav" %>
+    </div>
+    <%# if @show_delete_modal %>
+      <%#= render "shared/delete_modal" %>
+    <%# end %>
   </body>
 </html>

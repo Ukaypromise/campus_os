@@ -1,0 +1,33 @@
+<!--Sidebar-->
+<div class="hidden lg:fixed lg:inset-y-0 lg:z-30 lg:flex lg:w-72 lg:flex-col pt-16">
+  <div class="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6 pb-4">
+    <!--Navigation-->
+    <nav class="flex flex-1 flex-col pt-8">
+      <div class="space-y-1">
+        <!--<h2 class="px-2 text-sm font-semibold text-gray-500">Main</h2>-->
+        <!--Navigation Links-->
+        <div class="space-y-1">
+          <!--Navigation Links-->
+          <div class="space-y-1">
+            <%= sidebar_menu_link(dashboard_index_path, dashboard_icon, 'Dashboard') %>
+            <%#= sidebar_menu_link(agents_path, agent_icon, 'Agents') %>
+            <%#= sidebar_menu_link(companies_path, company_icon, 'Companies') %>
+            <%#= sidebar_menu_link(employees_path, employee_icon, 'Employees') %>
+            <%#= sidebar_menu_link(policies_path, policy_black_icon, 'Policies') %>
+            <%#= sidebar_menu_link(agent_info_employees_path, agent_icon, 'Agent Information') %>
+            <%#= sidebar_menu_link(employee_policies_employees_path, policy_black_icon, 'Policy') %>
+            <%# Removed because its not clear what it is %>
+            <%#= sidebar_menu_link(policy_enrollment_status_employees_path, policy_status_icon, 'Policy Enrollment Status') %>
+          </div>
+        </div>
+      </div>
+      <!--Support Section-->
+      <div class="mt-auto">
+        <h2 class="px-2 text-sm font-semibold text-gray-500">Other</h2>
+        <div class="space-y-1">
+          <%= sidebar_menu_link('#support_path', support_icon, 'Support') %>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
