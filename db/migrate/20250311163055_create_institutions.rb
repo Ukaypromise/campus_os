@@ -1,6 +1,6 @@
-class CreateOrganizations < ActiveRecord::Migration[8.0]
+class CreateInstitutions < ActiveRecord::Migration[8.0]
   def change
-    create_table :organizations do |t|
+    create_table :institutions do |t|
       t.string :name
       t.string :phone_number
       t.string :contact_email
@@ -8,7 +8,6 @@ class CreateOrganizations < ActiveRecord::Migration[8.0]
       t.string :address
       t.string :city
       t.string :state
-      t.string :zip
       t.string :country
       t.references :account, null: false, foreign_key: true
 
