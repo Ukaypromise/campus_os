@@ -1,0 +1,6 @@
+<%= link_to @path, class: @css_class do %>
+  <% if @icon.present? %>
+    <%= send(@icon, @icon_css_class) %>
+  <% end %>
+  <%= @text %>
+<% end %>

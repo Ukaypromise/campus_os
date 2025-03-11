@@ -5,16 +5,28 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag :app, "data-turbo-track": Rails.env.production? ? "reload" : "" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body class="h-full">
+  <!--<body class="h-full">
     <main>
-      <%= yield %>
-    </main>
+      <%#= yield %>-->
+  <!--    </main>
 
-    <%= turbo_frame_tag "modal" %>
+    <%#= turbo_frame_tag "modal" %>-->
+  <!--  </body>-->
+  <body class="flex h-screen">
+    <div class="flex-grow overflow-y-auto flex flex-col">
+      <header class="sticky z-30 top-0">
+        <div class="fixed z-50 space-y-1 top-10 right-20">
+          <div id="notification-tray">
+            <%= render_flash_notifications %>
+          </div>
+        </div>
+      </header>
+      <main class="flex-grow p-2 lg:p-4">
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html> 
