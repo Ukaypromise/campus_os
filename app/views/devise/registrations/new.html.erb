@@ -1,6 +1,6 @@
 <div class=" w-full mb-12 sm:mb-0">
   <div class="flex items-center justify-center h-full">
-    <div class="w-full max-w-2xl p-8">
+    <div class="w-full max-w-lg p-8">
       <h2 class="text-center text-3xl font-semibold mb-2">Create an account</h2>
       <p class="text-center text-sm text-gray-600 mb-8">or <%= link_to "sign in to your account", new_session_path(resource_name), class:"text-blue-600 hover:underline" %></p>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "space-y-6 mb-12"}) do |f| %>
@@ -25,53 +25,6 @@
           <%= f.label :password_confirmation, "Password Confirmation", class: "block text-sm font-medium text-gray-700" %>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
         </div>
-        <!--Organizational Information-->
-        <%= f.fields_for :organization do |org| %>
-          <div class="flex flex-col gap-y-6 md:flex-row md:gap-x-6">
-            <div class="w-full md:w-1/2">
-              <%= org.label :name, class: "block text-sm font-medium text-gray-700" %>
-              <%= org.text_field :name, class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
-            </div>
-            <div class="w-full md:w-1/2">
-              <%= org.label :phone_number, class: "block text-sm font-medium text-gray-700" %>
-              <%= org.text_field :phone_number, class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
-            </div>
-          </div>
-          <div class="flex flex-col gap-y-6 md:flex-row md:gap-x-6">
-            <div class="w-full md:w-1/2">
-              <%= org.label :address, class: "block text-sm font-medium text-gray-700" %>
-              <%= org.text_field :address, class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
-            </div>
-            <div class="w-full md:w-1/2">
-              <%= org.label :city, "City", class: "block text-sm font-medium text-gray-700" %>
-              <%= org.text_field :city, class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
-            </div>
-          </div>
-          <div class="flex flex-col gap-y-6 md:flex-row md:gap-x-6">
-            <div class="w-full md:w-1/2">
-              <%= org.label :state, "State", class: "block text-sm font-medium text-gray-700" %>
-              <%= org.text_field :state, class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
-            </div>
-            <div class="w-full md:w-1/2">
-              <%= org.label :zip, class: "block text-sm font-medium text-gray-700" %>
-              <%= org.text_field :zip, class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
-            </div>
-          </div>
-          <div class="w-full md:w-1/2">
-              <%= org.label :country, class: "block text-sm font-medium text-gray-700" %>
-              <%= org.text_field :country, class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
-            </div>
-          <div class="flex flex-col gap-y-6 md:flex-row md:gap-x-6">
-            <div class="w-full md:w-1/2">
-              <%= org.label :website, "Website", class: "block text-sm font-medium text-gray-700" %>
-              <%= org.text_field :website, class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
-            </div>
-            <div class="w-full md:w-1/2">
-              <%= org.label :contact_email, "Contact Email", class: "block text-sm font-medium text-gray-700" %>
-              <%= org.text_field :contact_email, class: "mt-1 block w-full p-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" %>
-            </div>
-          </div>
-        <% end %>
         <div>
           <%= f.submit "Signup", class: "w-full bg-black text-white font-semibold py-2.5 rounded-lg mt-4 hover:bg-gray-800 focus:outline-none" %>
         </div>

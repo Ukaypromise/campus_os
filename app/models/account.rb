@@ -5,6 +5,4 @@ class Account < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_one :organization, dependent: :destroy
-
-  accepts_nested_attributes_for :organization
 end
