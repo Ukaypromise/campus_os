@@ -2,7 +2,6 @@
   <% if institution.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
       <h2><%= pluralize(institution.errors.count, "error") %> prohibited this institution from being saved:</h2>
-
       <ul class="list-disc ml-6">
         <% institution.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,52 +9,39 @@
       </ul>
     </div>
   <% end %>
-
   <div class="my-5">
     <%= form.label :name %>
     <%= form.text_field :name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:name].none?, "border-red-400 focus:outline-red-600": institution.errors[:name].any?}] %>
   </div>
-
   <div class="my-5">
     <%= form.label :phone_number %>
     <%= form.text_field :phone_number, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:phone_number].none?, "border-red-400 focus:outline-red-600": institution.errors[:phone_number].any?}] %>
   </div>
-
   <div class="my-5">
     <%= form.label :contact_email %>
     <%= form.text_field :contact_email, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:contact_email].none?, "border-red-400 focus:outline-red-600": institution.errors[:contact_email].any?}] %>
   </div>
-
   <div class="my-5">
     <%= form.label :website %>
     <%= form.text_field :website, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:website].none?, "border-red-400 focus:outline-red-600": institution.errors[:website].any?}] %>
   </div>
-
   <div class="my-5">
     <%= form.label :address %>
     <%= form.text_field :address, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:address].none?, "border-red-400 focus:outline-red-600": institution.errors[:address].any?}] %>
   </div>
-
   <div class="my-5">
     <%= form.label :city %>
     <%= form.text_field :city, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:city].none?, "border-red-400 focus:outline-red-600": institution.errors[:city].any?}] %>
   </div>
-
   <div class="my-5">
     <%= form.label :state %>
     <%= form.text_field :state, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:state].none?, "border-red-400 focus:outline-red-600": institution.errors[:state].any?}] %>
   </div>
-
   <div class="my-5">
     <%= form.label :country %>
     <%= form.text_field :country, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:country].none?, "border-red-400 focus:outline-red-600": institution.errors[:country].any?}] %>
   </div>
-
-  <div class="my-5">
-    <%= form.label :account_id %>
-    <%= form.text_field :account_id, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:account_id].none?, "border-red-400 focus:outline-red-600": institution.errors[:account_id].any?}] %>
-  </div>
-
+  <%= form.hidden_field :account_id, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": institution.errors[:account_id].none?, "border-red-400 focus:outline-red-600": institution.errors[:account_id].any?}] %>
   <div class="inline">
     <%= form.submit class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
   </div>

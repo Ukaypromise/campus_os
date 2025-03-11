@@ -22,6 +22,7 @@ class InstitutionsController < ApplicationController
   # POST /institutions or /institutions.json
   def create
     @institution = Institution.new(institution_params)
+    @institution.account = current_account
 
     respond_to do |format|
       if @institution.save

@@ -70,3 +70,4 @@ gem "devise", "~> 4.9"
 
 gem "tailwindcss-ruby", "~> 4.0"
 gem "view_component"
+gem "devise_invitable", "~> 2.0.0"
