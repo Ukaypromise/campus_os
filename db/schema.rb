@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_11_172648) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_13_112046) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -57,22 +57,20 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_11_172648) do
     t.index ["account_id"], name: "index_institutions_on_account_id"
   end
 
-  create_table "organizations", force: :cascade do |t|
-    t.string "name"
-    t.string "phone_number"
-    t.string "contact_email"
-    t.string "website"
-    t.string "address"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.string "country"
+  create_table "teachers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.integer "role"
+    t.integer "status"
     t.bigint "account_id", null: false
+    t.bigint "institution_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_organizations_on_account_id"
+    t.index ["account_id"], name: "index_teachers_on_account_id"
+    t.index ["institution_id"], name: "index_teachers_on_institution_id"
   end
 
   add_foreign_key "institutions", "accounts"
-  add_foreign_key "organizations", "accounts"
+  add_foreign_key "teachers", "accounts"
+  add_foreign_key "teachers", "institutions"
 end

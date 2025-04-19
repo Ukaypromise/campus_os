@@ -1,0 +1,47 @@
+<%= form_with(model: teacher, class: "contents") do |form| %>
+  <% if teacher.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
+      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul class="list-disc ml-6">
+        <% teacher.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": teacher.errors[:first_name].none?, "border-red-400 focus:outline-red-600": teacher.errors[:first_name].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": teacher.errors[:last_name].none?, "border-red-400 focus:outline-red-600": teacher.errors[:last_name].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :role %>
+    <%= form.number_field :role, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": teacher.errors[:role].none?, "border-red-400 focus:outline-red-600": teacher.errors[:role].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :status %>
+    <%= form.number_field :status, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": teacher.errors[:status].none?, "border-red-400 focus:outline-red-600": teacher.errors[:status].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :account_id %>
+    <%= form.text_field :account_id, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": teacher.errors[:account_id].none?, "border-red-400 focus:outline-red-600": teacher.errors[:account_id].any?}] %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :institution_id %>
+    <%= form.text_field :institution_id, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": teacher.errors[:institution_id].none?, "border-red-400 focus:outline-red-600": teacher.errors[:institution_id].any?}] %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :teachers
   resources :institutions
   get "dashboard/index"
   devise_for :accounts
